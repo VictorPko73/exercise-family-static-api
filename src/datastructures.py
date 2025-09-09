@@ -6,7 +6,7 @@ Update this file to implement the following already declared methods:
 """
 
 class FamilyStructure:
-    def __init__(self, last_name):
+    def __init__(self, last_name: str):
         self.last_name = last_name
         self._next_id = 1
         self._members = [
@@ -39,11 +39,11 @@ class FamilyStructure:
         self._next_id += 1
         return generated_id
 
-    def add_member(self, member):
+    def add_member(self, member: dict):
         self._members.append(member)
         pass
 
-    def delete_member(self, id):
+    def delete_member(self, id: int):
         ## You have to implement this method
         ## Loop the list and delete the member with the given id
         for i, member in enumerate(self._members):
@@ -53,9 +53,13 @@ class FamilyStructure:
         return None
         pass
 
-    def get_member(self, id):
+    def get_member(self, id: int):
         ## You have to implement this method
         ## Loop all the members and return the one with the given id
+        for member in self._members:
+            if member["id"] == id:
+                return member
+        return None
         pass
 
     # This method is done, it returns a list with all the family members
