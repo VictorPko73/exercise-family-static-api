@@ -38,9 +38,13 @@ def handle_hello():
 
 @app.route('/members', methods=['POST'])
 def add_member():
+    
     request_body : dict = request.get_json()
     jackson_family.add_member(request_body)
-    return jsonify("Member added"), 200
+    if request_body:
+        return jsonify("Miembor añadido"), 200
+    else:
+        return jsonify("Fallo al añadir miembro"), 400
 
 @app.route('/members/<int:menber_id>', methods=['DELETE'])
 def delete_member(menber_id):
