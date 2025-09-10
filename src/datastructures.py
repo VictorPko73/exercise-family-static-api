@@ -40,7 +40,9 @@ class FamilyStructure:
         return generated_id
 
     def add_member(self, member: dict):
+        generate_id = self._generate_id()
         self._members.append(member)
+        return generate_id
         pass
 
     def delete_member(self, id: int):
