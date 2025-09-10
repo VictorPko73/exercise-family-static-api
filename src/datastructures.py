@@ -46,11 +46,11 @@ class FamilyStructure:
     def delete_member(self, id: int):
         ## You have to implement this method
         ## Loop the list and delete the member with the given id
-        for i, member in enumerate(self._members):
+        for member in self._members:
             if member["id"] == id:
-                eliminado = self._members.pop(i)
-                return eliminado
-        return None
+                self._members.remove(member)
+                return member
+            
         pass
 
     def get_member(self, id: int):
